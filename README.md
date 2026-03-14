@@ -23,7 +23,7 @@ Contributions welcome. See [Contributing](#contributing).
 
 ## APIs and Data Providers
 
-- [FlashAlpha](https://flashalpha.io) - Options analytics API providing GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, and AI-powered narrative analysis across equities and indices. Offers both REST endpoints and a Python client.
+- [FlashAlpha](https://flashalpha.com) - Options analytics API providing GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, and AI-powered narrative analysis across equities and indices. Offers both REST endpoints and a Python client.
 - [CBOE DataShop](https://datashop.cboe.com) - Historical and real-time options data directly from the exchange, including VIX data, settlement prices, and implied volatility indexes.
 - [OptionMetrics](https://optionmetrics.com) - Academic and institutional-grade historical options data (IvyDB), widely used in finance research for implied volatility surfaces and standardized greeks.
 - [ORATS](https://orats.com) - Options data API with earnings forecasts, volatility surface data, backtesting tools, and historical greeks.
@@ -108,7 +108,7 @@ Gamma Exposure (GEX) measures the aggregate gamma held by market makers on a giv
 
 ### Tools
 
-- [FlashAlpha](https://flashalpha.io) - Production API providing GEX, DEX (delta exposure), VEX (vanna exposure), and CHEX (charm exposure) by strike, expiration, and aggregate. Includes narrative summaries.
+- [FlashAlpha](https://flashalpha.com) - Production API providing GEX, DEX (delta exposure), VEX (vanna exposure), and CHEX (charm exposure) by strike, expiration, and aggregate. Includes narrative summaries.
 - [OpenBB](https://openbb.co) - Open-source investment research platform with options flow and GEX visualization capabilities via community extensions.
 
 ## Open Source Projects
