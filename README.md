@@ -2,6 +2,8 @@
 
 A curated list of tools, libraries, data providers, and resources for options analytics, volatility research, and derivatives trading. Inspired by the [awesome](https://github.com/sindresorhus/awesome) project.
 
+Options analytics spans a wide problem space: computing and interpreting options greeks (delta, gamma, theta, vega, vanna, charm), modeling the implied volatility surface and volatility smile, calculating gamma exposure (GEX) and dealer positioning to understand market microstructure, analyzing 0DTE and intraday options flow, fitting stochastic volatility models such as Heston and SABR, and applying systematic risk and position-sizing frameworks like the Kelly Criterion. This list collects the tools, data providers, libraries, papers, and communities relevant to each of these areas.
+
 Contributions welcome. See [Contributing](#contributing).
 
 ---
@@ -13,6 +15,9 @@ Contributions welcome. See [Contributing](#contributing).
 - [Options Pricing and Greeks](#options-pricing-and-greeks)
 - [Volatility Analysis](#volatility-analysis)
 - [Gamma Exposure (GEX)](#gamma-exposure-gex)
+- [Dealer Positioning and Market Microstructure](#dealer-positioning-and-market-microstructure)
+- [0DTE and Intraday Options](#0dte-and-intraday-options)
+- [Kelly Criterion and Position Sizing](#kelly-criterion-and-position-sizing)
 - [Open Source Projects](#open-source-projects)
 - [Educational Resources](#educational-resources)
 - [Communities](#communities)
@@ -96,7 +101,7 @@ Gamma Exposure (GEX) measures the aggregate gamma held by market makers on a giv
 
 ### References and Methodology
 
-- [gex-explained](https://github.com/dmacthedestroyer/gex-explained) - Community repository explaining GEX calculation methodology, notation, and interpretation.
+- [gex-explained](https://github.com/FlashAlpha-lab/gex-explained) - Explains GEX from first principles: the formula, dealer hedging regimes (positive vs negative gamma), the gamma flip level, call wall, put wall, and how to compute GEX from a raw options chain. Includes runnable Python code and sample data.
 - [SpotGamma](https://spotgamma.com) - Commercial platform specializing in gamma exposure, charm, vanna, and options flow analysis. Publishes educational content on GEX methodology.
 - [Squeezemetrics White Paper](https://squeezemetrics.com/monitor/download/pdf/white_paper.pdf) - "The Implied Order Book" — influential paper on dealer gamma positioning and market microstructure.
 
@@ -109,7 +114,65 @@ Gamma Exposure (GEX) measures the aggregate gamma held by market makers on a giv
 ### Tools
 
 - [FlashAlpha](https://flashalpha.com) - Production API providing GEX, DEX (delta exposure), VEX (vanna exposure), and CHEX (charm exposure) by strike, expiration, and aggregate. Includes narrative summaries.
+- [flashalpha-examples](https://github.com/FlashAlpha-lab/flashalpha-examples) - Self-contained Python scripts and notebooks demonstrating GEX dashboards, IV rank scanning, 3D volatility surface visualization, dealer positioning analysis, and Kelly Criterion position sizing using the FlashAlpha API.
 - [OpenBB](https://openbb.co) - Open-source investment research platform with options flow and GEX visualization capabilities via community extensions.
+
+## Dealer Positioning and Market Microstructure
+
+Dealer positioning analysis focuses on inferring how market makers' hedging obligations — driven by their options inventory — create predictable, measurable pressure on underlying prices. The key exposures tracked are GEX (gamma), DEX (delta), VEX (vanna), and CHEX (charm), each of which drives hedging flows under different market conditions.
+
+### References and Papers
+
+- [Squeezemetrics White Paper](https://squeezemetrics.com/monitor/download/pdf/white_paper.pdf) - "The Implied Order Book." Foundational paper linking dealer gamma exposure to realized volatility and directional flow. Describes the DIX (dark index) and GEX framework.
+- [Equity Volatility and Dealer Gamma](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3848436) - Academic study on the relationship between aggregate dealer gamma positioning and subsequent realized equity volatility.
+- [The Term Structure of Variance Swap Rates and Optimal Variance Swap Investments](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1340670) - Egloff, Leippold, Wu (2010). Relevant to understanding variance risk premium and dealer variance exposure.
+- [Demand-Based Option Pricing](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1354694) - Garleanu, Pedersen, Poteshman (2009). Documents how end-user demand for options drives prices away from no-arbitrage values, providing a microstructure basis for dealer positioning effects.
+
+### Tools and Data
+
+- [FlashAlpha](https://flashalpha.com) - Provides GEX, DEX, VEX, and CHEX profiles by strike and expiration for equities and indices, along with aggregate positioning summaries and AI narrative analysis. REST API and Python client.
+- [gex-explained](https://github.com/FlashAlpha-lab/gex-explained) - Walkthrough of dealer hedging regimes, the gamma flip level, and the mechanics behind positive and negative gamma environments.
+- [SpotGamma](https://spotgamma.com) - Commercial platform tracking dealer gamma, charm, vanna, and options flow with a focus on SPX/SPY and major indices.
+
+---
+
+## 0DTE and Intraday Options
+
+Zero-days-to-expiration (0DTE) options — contracts expiring the same day they are traded — have grown to represent a substantial and growing share of total SPX options volume. Their short lifespan creates distinct dynamics: rapid theta decay, concentrated gamma near the money, and large intraday hedging flows that can move the underlying.
+
+### Papers and Research
+
+- [The 0DTE Puzzle](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4524445) - Empirical analysis of 0DTE SPX options volume, who trades them, and their effect on intraday volatility.
+- [Intraday Pricing and the Overnight Effect](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3879125) - Research on intraday options pricing patterns and the behavior of short-dated implied volatility.
+- [Has Options Trading Informed Equity Prices?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1101337) - Pan and Poteshman (2006). Classic paper on options order flow informativeness, foundational for understanding intraday options-to-equity signal transmission.
+
+### Tools and Data
+
+- [CBOE DataShop](https://datashop.cboe.com) - Source for historical SPX and SPXW intraday trade and quote data, including 0DTE contracts.
+- [Thetadata](https://thetadata.net) - Tick-level historical options data provider with good coverage of short-dated and 0DTE contracts.
+- [FlashAlpha](https://flashalpha.com) - Exposure summaries include zero-DTE contribution breakdowns (DEX, GEX) to isolate 0DTE dealer hedging pressure from longer-dated positioning.
+- [Polygon.io](https://polygon.io/docs/options) - Intraday and real-time options data via REST and WebSocket API, suitable for building 0DTE flow monitors.
+
+---
+
+## Kelly Criterion and Position Sizing
+
+The Kelly Criterion provides a mathematically optimal fraction of capital to allocate to a bet given an edge and a payoff distribution. Applied to options, it must account for the non-linear payoff structure, the role of implied vs realized volatility in defining edge, and the practical need for fractional Kelly to manage drawdown.
+
+### Papers and References
+
+- [A New Interpretation of Information Rate](https://archive.org/details/bstj35-4-917) - Kelly (1956). The original paper introducing the Kelly Criterion.
+- [Optimal Growth and the Kelly Criterion](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2230900) - Overview of Kelly-based portfolio growth theory and its application to leveraged and derivative positions.
+- [Fortune's Formula](https://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990) - William Poundstone. Accessible account of the Kelly Criterion's development and application in markets.
+- [The Kelly Criterion in Blackjack, Sports Betting, and the Stock Market](https://www.cambridge.org/core/books/handbook-of-asset-and-liability-management/kelly-criterion-in-blackjack-sports-betting-and-the-stock-market/3C9B7960D8456ACE73498B5BD38A33B5) - Thorp (2006). Comprehensive treatment of Kelly in financial markets including derivatives.
+
+### Tools
+
+- [flashalpha-examples](https://github.com/FlashAlpha-lab/flashalpha-examples) - Includes a Kelly Criterion position sizing notebook (`06_kelly_sizing.py`) that integrates greeks and IV data from the FlashAlpha API to compute optimal sizing fractions.
+- [FlashAlpha `fa.kelly()`](https://flashalpha.com) - API endpoint for Kelly-optimal position sizing given options greeks, implied volatility, and a realized volatility estimate.
+- [Riskfolio-Lib](https://github.com/dcajasn/Riskfolio-Lib) - Portfolio optimization library covering Kelly and entropy-based risk measures applicable to options portfolios.
+
+---
 
 ## Open Source Projects
 
