@@ -18,6 +18,7 @@ Contributions welcome. See [Contributing](#contributing).
 - [Dealer Positioning and Market Microstructure](#dealer-positioning-and-market-microstructure)
 - [0DTE and Intraday Options](#0dte-and-intraday-options)
 - [Kelly Criterion and Position Sizing](#kelly-criterion-and-position-sizing)
+- [Options Screeners](#options-screeners)
 - [Open Source Projects](#open-source-projects)
 - [Educational Resources](#educational-resources)
 - [Communities](#communities)
@@ -28,7 +29,7 @@ Contributions welcome. See [Contributing](#contributing).
 
 ## APIs and Data Providers
 
-- [FlashAlpha](https://flashalpha.com) - Options analytics API providing GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, and AI-powered narrative analysis across equities and indices. Offers both REST endpoints and a Python client.
+- [FlashAlpha](https://flashalpha.com) - Options analytics API providing a live options screener (filter/rank by GEX, VRP, IV, greeks, harvest scores, and custom formulas), GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, 0DTE analytics, and AI-powered narrative analysis across equities and indices. Offers REST endpoints and SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP server.
 - [CBOE DataShop](https://datashop.cboe.com) - Historical and real-time options data directly from the exchange, including VIX data, settlement prices, and implied volatility indexes.
 - [OptionMetrics](https://optionmetrics.com) - Academic and institutional-grade historical options data (IvyDB), widely used in finance research for implied volatility surfaces and standardized greeks.
 - [ORATS](https://orats.com) - Options data API with earnings forecasts, volatility surface data, backtesting tools, and historical greeks.
@@ -171,6 +172,29 @@ The Kelly Criterion provides a mathematically optimal fraction of capital to all
 - [flashalpha-examples](https://github.com/FlashAlpha-lab/flashalpha-examples) - Includes a Kelly Criterion position sizing notebook (`06_kelly_sizing.py`) that integrates greeks and IV data from the FlashAlpha API to compute optimal sizing fractions.
 - [FlashAlpha `fa.kelly()`](https://flashalpha.com) - API endpoint for Kelly-optimal position sizing given options greeks, implied volatility, and a realized volatility estimate.
 - [Riskfolio-Lib](https://github.com/dcajasn/Riskfolio-Lib) - Portfolio optimization library covering Kelly and entropy-based risk measures applicable to options portfolios.
+
+---
+
+## Options Screeners
+
+Options screeners filter and rank contracts or underlyings by metrics like implied volatility, open interest, greeks, dealer exposure, or custom expressions. A good screener lets you compose filters on the stock, expiry, strike, and individual contract level in a single query.
+
+### APIs and Tools
+
+- [FlashAlpha Live Screener](https://flashalpha.com/docs/lab-api-screener) - Live options screener API. Filter/rank symbols across your universe by gamma exposure (GEX), variance risk premium (VRP), IV, greeks, harvest scores, dealer flow risk, and custom formulas. Supports cascading filters on expiries, strikes, and contracts. Data refreshes every 5-10 seconds from an in-memory store. SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP tool.
+- [FlashAlpha Screener Cookbook](https://flashalpha.com/docs/lab-api-screener-cookbook) - Worked recipes: harvestable VRP scans, negative-gamma alerts, vol-scanner setups, 0DTE call-seller screens, and custom formula rankings.
+- [flashalpha-examples `10_live_options_screener.py`](https://github.com/FlashAlpha-lab/flashalpha-examples) - Runnable Python examples: harvestable VRP setups, IV premium ranking, cascading strike/contract filters, risk-adjusted harvest scores.
+- [MarketChameleon](https://marketchameleon.com) - Commercial options screener covering unusual activity, earnings, and IV rank.
+- [Barchart Options Screener](https://www.barchart.com/options/screener) - Free options screener with filters for volume, OI, IV, delta, and more.
+- [Cboe LiveVol](https://www.livevol.com) - Professional options analytics platform with custom screening.
+
+### Screening Strategies
+
+- **Harvestable VRP** - Filter for positive-gamma names with `vrp_regime = harvestable`, `dealer_flow_risk <= 40`, `harvest_score >= 65`. Captures short-vol setups where implied richness is durable.
+- **Negative gamma alert** - Filter for `regime = negative_gamma` and `dealer_flow_risk >= 50`. Identifies names where hedging flows amplify price moves.
+- **IV premium ranking** - Rank by the formula `atm_iv - rv_20d` to find names where implied is richest vs trailing realized.
+- **Cascading 0DTE call seller** - Filter `expiries.days_to_expiry = 0`, `contracts.type = C`, `contracts.delta >= 0.3`, `contracts.oi >= 1000` to surface high-probability short-call candidates.
+- **Risk-adjusted harvest** - Compute `harvest_score / (dealer_flow_risk + 1)` as a formula to rank setups by expected reward per unit of hedging-flow risk.
 
 ---
 
