@@ -182,6 +182,7 @@ Options screeners filter and rank contracts or underlyings by metrics like impli
 ### APIs and Tools
 
 - [FlashAlpha Live Screener](https://flashalpha.com/docs/lab-api-screener) - Live options screener API. Filter/rank symbols across your universe by gamma exposure (GEX), variance risk premium (VRP), IV, greeks, harvest scores, dealer flow risk, and custom formulas. Supports cascading filters on expiries, strikes, and contracts. Data refreshes every 5-10 seconds from an in-memory store. SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP tool.
+- [FlashAlpha Max Pain](https://flashalpha.com/docs) - Max pain analysis API with dealer alignment overlay (gamma flip, call/put walls), pain curve, OI breakdown by strike, expected move context, pin probability scoring, and multi-expiry calendar. Converging/diverging dealer alignment signals when max pain acts as a true price magnet vs. being overridden by directional flow.
 - [FlashAlpha Screener Cookbook](https://flashalpha.com/docs/lab-api-screener-cookbook) - Worked recipes: harvestable VRP scans, negative-gamma alerts, vol-scanner setups, 0DTE call-seller screens, and custom formula rankings.
 - [flashalpha-examples `10_live_options_screener.py`](https://github.com/FlashAlpha-lab/flashalpha-examples) - Runnable Python examples: harvestable VRP setups, IV premium ranking, cascading strike/contract filters, risk-adjusted harvest scores.
 - [MarketChameleon](https://marketchameleon.com) - Commercial options screener covering unusual activity, earnings, and IV rank.
