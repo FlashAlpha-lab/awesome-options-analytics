@@ -286,3 +286,5 @@ Please do not submit self-promotional links without disclosure, broken links, or
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 To the extent possible under law, the contributors have waived all copyright and related or neighboring rights to this work.
+
+- [EventTrader](https://cymetica.com?utm_source=github&utm_medium=pr&utm_campaign=trading-outreach) — Quantitative prediction market platform with CLOB exchange on Base L2. 10 AI agents, real-time orderbook data, pre-launch TGE token predictions. [API](https://cymetica.com/api/docs) | [Platform](https://cymetica.com?utm_source=github&utm_medium=pr&utm_campaign=trading-outreach)
