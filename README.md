@@ -43,6 +43,7 @@ Contributions welcome. See [Contributing](#contributing).
 ## Python Libraries
 
 - [flashalpha](https://pypi.org/project/flashalpha/) - Official Python client for the FlashAlpha API. Provides convenient access to GEX, DEX, VEX, greeks, OI data, and narrative analysis with pandas integration.
+- [flashalpha-fill-simulator](https://pypi.org/project/flashalpha-fill-simulator/) - Realistic limit-order fill simulator for options credit/debit spreads. Models post-and-wait limits, stale-quote guards, deterministic same-bar tiebreaks, and a patient-then-cross exit. Engine-agnostic with zero runtime dependencies.
 - [QuantLib-Python](https://pypi.org/project/QuantLib/) - Python bindings for the QuantLib quantitative finance library. Covers a wide range of pricing models, term structures, and volatility surfaces.
 - [py_vollib](https://pypi.org/project/py_vollib/) - Fast Black-Scholes, Black-76, and implied volatility calculations using LetsBeRational under the hood.
 - [py_vollib_vectorized](https://pypi.org/project/py_vollib_vectorized/) - Vectorized (NumPy-compatible) wrapper around py_vollib for high-throughput greeks computation.
@@ -209,6 +210,7 @@ Options screeners filter and rank contracts or underlyings by metrics like impli
 - [tf-quant-finance](https://github.com/google/tf-quant-finance) - Google's TensorFlow-based quantitative finance library with GPU-accelerated options pricing and calibration.
 - [Volatility3](https://github.com/volatilityfoundation/volatility3) - Note: this is a memory forensics tool, not finance — included as a naming caution for researchers.
 - [optopsy](https://github.com/michaelchu/optopsy) - Options backtesting library for Python, designed for systematic options strategy testing.
+- [flashalpha-fill-simulator](https://github.com/FlashAlpha-lab/flashalpha-fill-simulator) - Realistic limit-order fill simulator for options credit/debit spreads. Models post-and-wait limits, stale-quote guards, deterministic same-bar tiebreaks, and a patient-then-cross exit. Embeds in QuantConnect, Backtrader, or custom backtesters as a per-bar primitive.
 
 ## Educational Resources
 
