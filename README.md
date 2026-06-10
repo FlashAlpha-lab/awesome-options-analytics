@@ -17,6 +17,11 @@ Contributions welcome. See [Contributing](#contributing).
 - [Gamma Exposure (GEX)](#gamma-exposure-gex)
 - [Dealer Positioning and Market Microstructure](#dealer-positioning-and-market-microstructure)
 - [0DTE and Intraday Options](#0dte-and-intraday-options)
+- [Options Strategy Signals](#options-strategy-signals)
+- [Earnings Volatility Analytics](#earnings-volatility-analytics)
+- [Multi-Leg Structures and Payoff Analysis](#multi-leg-structures-and-payoff-analysis)
+- [Dispersion and Correlation Trading](#dispersion-and-correlation-trading)
+- [Macro Volatility Regime and Universe](#macro-volatility-regime-and-universe)
 - [Kelly Criterion and Position Sizing](#kelly-criterion-and-position-sizing)
 - [Options Screeners](#options-screeners)
 - [Open Source Projects](#open-source-projects)
@@ -29,7 +34,7 @@ Contributions welcome. See [Contributing](#contributing).
 
 ## APIs and Data Providers
 
-- [FlashAlpha](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Computed dealer-positioning analytics API: live options screener (filter/rank by GEX, VRP, IV, greeks, harvest scores, and custom formulas), GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, 0DTE analytics, and AI-powered narrative analysis across equities and indices. The only public source of **aggregate vanna and charm exposure**, and **point-in-time replay since 2018**. REST endpoints and SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP server.
+- [FlashAlpha](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Computed dealer-positioning analytics API: live options screener (filter/rank by GEX, VRP, IV, greeks, harvest scores, and custom formulas), GEX (gamma exposure), DEX (delta exposure), VEX (vanna exposure), CHEX (charm exposure), full greeks, open interest, 0DTE analytics, and AI-powered narrative analysis across equities and indices. Also exposes options **strategy signals** (flow-anomaly, expiry-positioning, zero-DTE, dealer-regime, vol-carry, yield-enhancement, surface-anomaly, skew, term-structure, tail-pricing with a uniform 0-100 decision-envelope score and ranked structures), **earnings volatility analytics** (calendar, expected-move decomposition, IV crush, VRP, dealer positioning, strategy suitability, screener), **multi-leg structure** P&L and aggregate greeks, **dispersion/implied correlation**, intraday **0DTE flow** (snapshot, series, hedge-flow, heatmap, strike-flow), a macro **VIX-state** regime gauge, the **SVI volatility surface**, skew-term and spot-vol correlation, and **expected move**. The only public source of **aggregate vanna and charm exposure**, and **point-in-time replay since 2018**. REST endpoints and SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP server.
 - [CBOE DataShop](https://datashop.cboe.com) - Historical and real-time options data directly from the exchange, including VIX data, settlement prices, and implied volatility indexes.
 - [OptionMetrics](https://optionmetrics.com) - Academic and institutional-grade historical options data (IvyDB), widely used in finance research for implied volatility surfaces and standardized greeks.
 - [ORATS](https://orats.com) - Options data API with earnings forecasts, volatility surface data, backtesting tools, and historical greeks.
@@ -85,6 +90,13 @@ Contributions welcome. See [Contributing](#contributing).
 - [pysabr](https://github.com/ynouri/pysabr) - Python implementation of the SABR (Stochastic Alpha Beta Rho) volatility model, widely used for vol smile interpolation.
 - [ssvi](https://github.com/vpatryshev/ssvi) - Surface SVI (SSVI) implementation for arbitrage-free volatility surface parameterization.
 - [volatility-surface](https://github.com/cantaro86/Financial-Models-Numerical-Methods) - Jupyter notebooks covering vol surface construction and SVI calibration from the book "Financial Models with Numerical Methods."
+- [FlashAlpha SVI Surface](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Fitted SVI (stochastic volatility inspired) surface parameters per symbol — raw SVI params by expiry slice for arbitrage-aware implied volatility surface modeling, smile/skew interpolation, and re-pricing off-grid strikes. Also exposes skew-term structure, spot-vol correlation, and expected-move analytics. REST API and SDKs in five languages plus an MCP server.
+
+### Skew, Term Structure, and Expected Move
+
+- [FlashAlpha Skew-Term](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Volatility skew and term-structure analytics: per-expiry skew slope and curvature, ATM vol term structure, contango/backwardation state, and skew-term signals for relative-value and calendar trades.
+- [FlashAlpha Spot-Vol Correlation](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Spot-vol correlation diagnostics quantifying the leverage effect (negative correlation between spot returns and implied volatility), useful for skew interpretation and vanna/charm hedging context.
+- [FlashAlpha Expected Move](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Options-implied expected move (one-standard-deviation range) by expiry, derived from ATM straddle pricing and the implied volatility surface for event and range trading.
 
 ### Realized Volatility
 
@@ -133,6 +145,10 @@ Dealer positioning analysis focuses on inferring how market makers' hedging obli
 ### Tools and Data
 
 - [FlashAlpha](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Provides GEX, DEX, VEX, and CHEX profiles by strike and expiration for equities and indices, along with aggregate positioning summaries and AI narrative analysis. The only public source of **aggregate vanna and charm exposure** and **point-in-time replay since 2018**. REST API and SDKs in five languages.
+- [FlashAlpha Exposure Sheet](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Full dealer-exposure sheet per symbol: GEX, DEX, VEX, and CHEX combined by strike and expiry in one call, with min-OI filtering — a single consolidated view of dealer positioning across all greeks.
+- [FlashAlpha Exposure Term Structure](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Dealer exposure aggregated across the expiry term structure, separating front-month from back-month gamma/delta/vanna/charm to reveal where hedging pressure concentrates along the curve.
+- [FlashAlpha Exposure Basket](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Weighted-basket dealer exposure across multiple symbols in a single request, for index proxies, sector baskets, and portfolio-level GEX/DEX/VEX/CHEX aggregation.
+- [FlashAlpha OI-Diff](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Day-over-day open-interest change by strike (top-N movers), surfacing fresh positioning and where new dealer inventory is being built.
 - [gex-explained](https://github.com/FlashAlpha-lab/gex-explained) - Walkthrough of dealer hedging regimes, the gamma flip level, and the mechanics behind positive and negative gamma environments.
 - [SpotGamma](https://spotgamma.com) - Commercial platform tracking dealer gamma, charm, vanna, and options flow with a focus on SPX/SPY and major indices.
 
@@ -153,7 +169,80 @@ Zero-days-to-expiration (0DTE) options — contracts expiring the same day they 
 - [CBOE DataShop](https://datashop.cboe.com) - Source for historical SPX and SPXW intraday trade and quote data, including 0DTE contracts.
 - [Thetadata](https://thetadata.net) - Tick-level historical options data provider with good coverage of short-dated and 0DTE contracts.
 - [FlashAlpha](https://flashalpha.com) - Exposure summaries include zero-DTE contribution breakdowns (DEX, GEX) to isolate 0DTE dealer hedging pressure from longer-dated positioning.
+- [FlashAlpha 0DTE Flow](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Intraday zero-DTE flow analytics: live snapshot, intrabar time series (30s/1m/5m/15m bars), dealer hedge-flow (calls/puts side), strike-by-time heatmaps (GEX/DEX/VEX/CHEX/OI/signed-flow, raw or delta mode), and per-strike signed-flow — purpose-built for monitoring same-day SPX/SPY 0DTE dealer hedging pressure and gamma pinning. REST API and SDKs in five languages plus an MCP server.
 - [Polygon.io](https://polygon.io/docs/options) - Intraday and real-time options data via REST and WebSocket API, suitable for building 0DTE flow monitors.
+
+---
+
+## Options Strategy Signals
+
+Strategy signals turn raw dealer-positioning and volatility analytics into actionable, scored trade ideas. A good signal layer normalizes heterogeneous setups onto a common decision scale and proposes concrete option structures (verticals, condors, calendars, ratios) with strikes, widths, and credits.
+
+### Tools
+
+- [FlashAlpha Strategy Signals](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Ten options strategy-signal endpoints under a uniform decision envelope (0-100 conviction score plus ranked, ready-to-trade structures): flow-anomaly, expiry-positioning, zero-DTE, dealer-regime, vol-carry, yield-enhancement, surface-anomaly, skew, term-structure, and tail-pricing. Each returns a directional/neutral stance, rationale, and candidate spreads with strikes and widths. REST API and SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP server.
+
+### Signal Families
+
+- **Flow-anomaly** - Detects unusual options order flow versus baseline and proposes structures aligned with the anomalous positioning.
+- **Expiry-positioning** - Scores how dealer/customer open interest is positioned into a given expiry; suggests verticals and condors around walls.
+- **Zero-DTE** - Same-day expiry signal combining 0DTE gamma, pin risk, and flow into intraday call/put-seller and spread setups.
+- **Dealer-regime** - Classifies the positive vs negative gamma regime and recommends trend-following or mean-reversion structures accordingly.
+- **Vol-carry** - Harvestable variance-risk-premium setups (short-vol verticals) calibrated by target short delta, max width, and minimum credit.
+- **Yield-enhancement** - Covered-call and put-write overlays by target delta and structure, with optional earnings exclusion.
+- **Surface-anomaly** - Flags mispricings in the implied volatility surface (rich/cheap slices) for relative-value spreads.
+- **Skew** - Scores put/call skew dislocations and suggests risk-reversals and skew trades.
+- **Term-structure** - Contango/backwardation signal for calendar and diagonal spreads across expiries.
+- **Tail-pricing** - Evaluates the richness/cheapness of tail (wing) options for convex hedges and tail trades.
+
+---
+
+## Earnings Volatility Analytics
+
+Earnings events drive a predictable implied-volatility ramp into the report and a sharp IV crush afterward. Earnings options analytics quantify the market-implied expected move, decompose it into diffusive vs jump components, measure the historical variance risk premium around prints, and surface which names offer the best short-vol or long-vol setups.
+
+### Tools
+
+- [FlashAlpha Earnings Analytics](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Earnings-driven volatility analytics: earnings calendar (by days/symbols/importance), expected-move decomposition (implied straddle move split into event jump vs baseline diffusion), historical earnings-move history, IV-crush profiling, earnings VRP, dealer positioning into the print, strategy-suitability scoring (straddle/strangle/iron-condor/calendar), and a cross-sectional earnings screener. REST API and SDKs in five languages plus an MCP server.
+
+### Concepts
+
+- **Expected-move decomposition** - Splits the options-implied move into the earnings jump component and the residual diffusive move, isolating the true event premium.
+- **IV crush** - Quantifies the post-earnings implied-volatility collapse to size short-premium straddle/strangle exits.
+- **Earnings VRP** - Compares implied earnings move to realized historical earnings moves to find persistently rich or cheap names.
+- **Strategy suitability** - Ranks straddles, strangles, iron condors, and calendars by fit for each upcoming print.
+
+---
+
+## Multi-Leg Structures and Payoff Analysis
+
+Multi-leg structure analytics evaluate arbitrary combinations of option legs — verticals, condors, butterflies, calendars, ratios — for their at-expiry payoff and aggregate risk. The core outputs are the P&L curve with breakevens, max profit/loss, and net position greeks.
+
+### Tools
+
+- [FlashAlpha Structures P&L](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - At-expiry P&L engine for arbitrary multi-leg option structures: submit legs and get the payoff curve across an underlying range, plus breakevens, max profit, and max loss. Pure-math, no market data required. REST API (POST) and SDKs in five languages plus an MCP server.
+- [FlashAlpha Structures Greeks](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Aggregate position greeks for a multi-leg structure: net delta, gamma, theta, vega (and higher-order greeks) summed across legs given spot, expiries, implied vols, rate, and dividend yield. Pure-math Black-Scholes engine. REST API (POST) and SDKs in five languages.
+
+---
+
+## Dispersion and Correlation Trading
+
+Dispersion trading exploits the gap between index-implied volatility and the volatility of its constituents — equivalently, between implied and realized correlation. When index options are rich relative to single-name options, the implied correlation is elevated, motivating short-index / long-components (or the reverse) volatility structures.
+
+### Tools
+
+- [FlashAlpha Dispersion](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Implied vs realized correlation and dispersion analytics for an index against a weighted basket of constituents: implied correlation, realized correlation, dispersion spread, and horizon-scaled estimates for index-vs-components volatility-arbitrage trades. REST API and SDKs in five languages plus an MCP server.
+
+---
+
+## Macro Volatility Regime and Universe
+
+Macro regime analytics place a single name's volatility in the broader market context — whether the VIX is rich or cheap versus realized (overvixing/undervixing) — and provide a ranked universe of tradable symbols for screening and discovery.
+
+### Tools
+
+- [FlashAlpha VIX-State](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Macro volatility-regime gauge classifying the market as overvixing (VIX rich vs realized) or undervixing (VIX cheap vs realized), for top-down volatility timing and risk-on/risk-off context.
+- [FlashAlpha Universe](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Ranked, sortable universe of covered symbols (with limit/sort) for discovery, screening seeds, and building option-analytics watchlists.
 
 ---
 
