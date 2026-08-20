@@ -299,6 +299,7 @@ Options screeners filter and rank contracts or underlyings by metrics like impli
 - [tf-quant-finance](https://github.com/google/tf-quant-finance) - Google's TensorFlow-based quantitative finance library with GPU-accelerated options pricing and calibration.
 - [Volatility3](https://github.com/volatilityfoundation/volatility3) - Note: this is a memory forensics tool, not finance — included as a naming caution for researchers.
 - [optopsy](https://github.com/michaelchu/optopsy) - Options backtesting library for Python, designed for systematic options strategy testing.
+- [ERN-WO Options Backtester](https://github.com/Javier-Garzo/ern-wo-options-backtester) - Open-source Java engine for reproducible 0DTE and 1DTE index-options backtesting using streaming intraday data, conservative five-minute execution modeling, and published Early Retirement Now (ERN) and WealthyOption strategy replication results.
 - [flashalpha-quantconnect](https://github.com/FlashAlpha-lab/flashalpha-quantconnect) - QuantConnect LEAN custom-data bars (C# + Python) for FlashAlpha options-flow data: GEX, DEX, VEX, vol surface, 0DTE, VRP, max-pain, narrative. Drop-in `algo.AddData<FlashAlphaGexBar>("SPY")`.
 - [flashalpha-fill-simulator](https://github.com/FlashAlpha-lab/flashalpha-fill-simulator) - Realistic limit-order fill simulator for options credit/debit spreads. Models post-and-wait limits, stale-quote guards, deterministic same-bar tiebreaks, and a patient-then-cross exit. Embeds in QuantConnect, Backtrader, or custom backtesters as a per-bar primitive.
 
