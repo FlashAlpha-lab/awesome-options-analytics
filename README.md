@@ -67,6 +67,7 @@ Contributions welcome. See [Contributing](#contributing).
 - [py_vollib](https://pypi.org/project/py_vollib/) - Implements Black-Scholes and Black-76 with fast implied volatility solving via LetsBeRational.
 - [QuantLib](https://www.quantlib.org) - Comprehensive C++ library (with Python bindings) covering Black-Scholes-Merton, analytical barrier options, Asian options, and more.
 - [black-scholes-rs](https://github.com/hayden4r4/black-scholes-rust) - Rust implementation of Black-Scholes with Python bindings via PyO3, designed for performance-critical greeks computation.
+- [GreeksLab](https://greekslab.launchyard.app) - Free web-based options Greeks calculator with Black-Scholes model, implied volatility calculator, strategy builder, and P&L chart. No signup required.
 
 ### Binomial and Lattice Models
 
