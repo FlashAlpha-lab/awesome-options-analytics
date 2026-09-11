@@ -130,6 +130,7 @@ Gamma Exposure (GEX) measures the aggregate gamma held by market makers on a giv
 - [FlashAlpha](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Production API providing GEX, DEX (delta exposure), VEX (vanna exposure), and CHEX (charm exposure) by strike, expiration, and aggregate, plus narrative summaries. The only public source of **aggregate vanna and charm exposure** and **point-in-time replay since 2017**.
 - [flashalpha-examples](https://github.com/FlashAlpha-lab/flashalpha-examples) - Self-contained Python scripts and notebooks demonstrating GEX dashboards, IV rank scanning, 3D volatility surface visualization, dealer positioning analysis, and Kelly Criterion position sizing using the FlashAlpha API.
 - [OpenBB](https://openbb.co) - Open-source investment research platform with options flow and GEX visualization capabilities via community extensions.
+- [SIGNUM HQ](https://signumhq.com/app?from=github_gex) - Free iOS and Android app that surfaces per-ticker gamma exposure, the gamma flip level, call and put walls, and max pain for US equities, alongside dark pool share and newly opened options open interest. Plain-language summaries in English, Korean, and Japanese.
 
 ## Dealer Positioning and Market Microstructure
 
