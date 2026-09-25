@@ -44,6 +44,7 @@ Contributions welcome. See [Contributing](#contributing).
 - [Interactive Brokers API](https://interactivebrokers.github.io) - TWS API and Client Portal API providing options data, greeks, and order routing for IB account holders.
 - [Alpaca Markets](https://alpaca.markets/docs/api-references/market-data-api/option-data/) - Options market data and trading API with free and paid tiers.
 - [Market Data App](https://api.marketdata.app) - Options chain and historical data API with a generous free tier.
+- [Eulerpool](https://eulerpool.com/developers) - Financial data REST API with options chains, greeks, implied volatility surfaces and options flow alongside equities, fundamentals and macro data. SDKs for Python, TypeScript, Go, Java, R, PHP, Rust and C++; free tier for non-commercial use.
 
 ## Python Libraries
 
