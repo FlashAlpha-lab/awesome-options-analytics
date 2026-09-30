@@ -219,6 +219,7 @@ Earnings events drive a predictable implied-volatility ramp into the report and 
 Multi-leg structure analytics evaluate arbitrary combinations of option legs — verticals, condors, butterflies, calendars, ratios — for their at-expiry payoff and aggregate risk. The core outputs are the P&L curve with breakevens, max profit/loss, and net position greeks.
 
 ### Tools
+- [CallPutHub](https://callputhub.com/) - Free browser-based options trade analyzer for single- and multi-leg strategies, with payoff diagrams, breakeven points, and profit/loss scenarios.
 
 - [FlashAlpha Structures P&L](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - At-expiry P&L engine for arbitrary multi-leg option structures: submit legs and get the payoff curve across an underlying range, plus breakevens, max profit, and max loss. Pure-math, no market data required. REST API (POST) and SDKs in five languages plus an MCP server.
 - [FlashAlpha Structures Greeks](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Aggregate position greeks for a multi-leg structure: net delta, gamma, theta, vega (and higher-order greeks) summed across legs given spot, expiries, implied vols, rate, and dividend yield. Pure-math Black-Scholes engine. REST API (POST) and SDKs in five languages.
