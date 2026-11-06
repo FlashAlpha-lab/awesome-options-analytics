@@ -181,6 +181,7 @@ Strategy signals turn raw dealer-positioning and volatility analytics into actio
 ### Tools
 
 - [FlashAlpha Strategy Signals](https://flashalpha.com/for-quant-teams?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Ten options strategy-signal endpoints under a uniform decision envelope (0-100 conviction score plus ranked, ready-to-trade structures): flow-anomaly, expiry-positioning, zero-DTE, dealer-regime, vol-carry, yield-enhancement, surface-anomaly, skew, term-structure, and tail-pricing. Each returns a directional/neutral stance, rationale, and candidate spreads with strikes and widths. REST API and SDKs in Python, JavaScript, .NET, Java, Go, plus an MCP server.
+- [FlashAlpha sell-window](https://flashalpha.com/docs/lab-api-strategies-sell-window?utm_source=github&utm_medium=readme&utm_campaign=repo-awesome-list) - Answers "should you sell options today?" for SPY, QQQ and IWM: sell or skip per listed expiry, with strikes, quotes and the exit rule on a sell. Built from more than 5 million backtests, with a public [trade-by-trade backtest](https://flashalpha.com/articles/sell-window-backtest-every-trade-2018-2026).
 
 ### Signal Families
 
@@ -194,6 +195,7 @@ Strategy signals turn raw dealer-positioning and volatility analytics into actio
 - **Skew** - Scores put/call skew dislocations and suggests risk-reversals and skew trades.
 - **Term-structure** - Contango/backwardation signal for calendar and diagonal spreads across expiries.
 - **Tail-pricing** - Evaluates the richness/cheapness of tail (wing) options for convex hedges and tail trades.
+- **Sell or skip** - Says per expiry whether to sell options that session at all, and lists the trades to place when it says sell.
 
 ---
 
