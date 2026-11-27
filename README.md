@@ -59,6 +59,7 @@ Contributions welcome. See [Contributing](#contributing).
 - [pydantic-settings](https://pypi.org/project/pydantic-settings/) - Commonly used for configuration management in options analytics pipelines.
 - [arch](https://pypi.org/project/arch/) - Autoregressive conditional heteroskedasticity (ARCH/GARCH) models for realized volatility and volatility forecasting.
 - [scipy](https://pypi.org/project/scipy/) - Foundational scientific computing library used extensively for numerical options pricing and optimization.
+- [lumibot](https://pypi.org/project/lumibot/) - Python framework for backtesting and live trading options strategies with the same code, using options data from sources such as Polygon, ThetaData and Databento.
 
 ## Options Pricing and Greeks
 
