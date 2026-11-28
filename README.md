@@ -282,6 +282,7 @@ Options screeners filter and rank contracts or underlyings by metrics like impli
 - [MarketChameleon](https://marketchameleon.com) - Commercial options screener covering unusual activity, earnings, and IV rank.
 - [Barchart Options Screener](https://www.barchart.com/options/screener) - Free options screener with filters for volume, OI, IV, delta, and more.
 - [Cboe LiveVol](https://www.livevol.com) - Professional options analytics platform with custom screening.
+- [PutFinder](https://putfinder.com) - Daily rules-based ranking of cash-secured put contracts on a curated list of liquid US stocks, with every input shown next to the rank. Free tier.
 
 ### Screening Strategies
 
